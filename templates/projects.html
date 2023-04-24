@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 align="center">Проекты</h1>
+<div class="possibilities">
+    <div class="cards">
+        <div class="row">
+  <div class="col-sm-6 mb-3 mb-sm-0">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Сочинения</h5>
+        <p class="card-text">Искуственный интеллект поможет вам написать сочинение по абсолютно любой теме и абсолютно любого объёма</p>
+        <a href="/composition" class="btn btn-primary">Перейти к написанию</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Пароли</h5>
+        <p class="card-text">Также искуственный интеллект может помочь вам в написании пароля любой длины. В пароле используется исключительно латиница.</p>
+        <a href="/password" class="btn btn-primary">Перейти к написанию</a>
+      </div>
+    </div>
+  </div>
+            <div class="col-sm-6 mb-3 mb-sm-0">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Анализ текста</h5>
+        <p class="card-text">Искуственный интеллект поможет вам проанализировать текст (посчитать количество символов, слов и многое другое)</p>
+        <a href="/analysis" class="btn btn-primary">Перейти к анализу</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Словарь</h5>
+        <p class="card-text">Искуственный интеллект поможет объяснить непонятный вам термин со всеми подробностями. Он работает на русском и английском языках</p>
+        <a href="/meaning" class="btn btn-primary">Перейти к словарю</a>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+<h2 class="more razrab" align="center">Некоторые проекты в разработке...</h2>
+{% endblock %}

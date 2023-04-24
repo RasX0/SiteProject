@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if current_user.is_authenticated %}
+<button type="button" class="btn btn-primary btn-slovar" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <h2 align="center">Сочинение</h2>
+</button>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <p class="modal-title fs-5" id="exampleModalLabel">Информация</p>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          Правила пользования написанием сочинения:<br><br>
+          &#8226; Вводится одна тема, без лишних знаков.<br><br>
+          &#8226; Ввод произведения не обязателен, в случае отсутствия произведения напишите знак "-".<br><br>
+          &#8226; Сочинение пишется только на английском и русских языках.<br><br>
+          Примечания:<br><br>
+          &#8226; Не советую вам вводить очень маленькие или очень большие числовые значения, программа может некорректно сработать.<br><br>
+          &#8226; Количество слов может незначительно отклонятся от заданного.<br><br>
+          &#8226; Некоторые данные могут быть некорректны.<br><br>
+          &#8226; Не советую вам вводить число "от" больше чем число "до", ИИ будет работать некорректно, но так как ИИ достаточно умный, ошибку он выдавать не будет.
+
+      </div>
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Принять</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+    <div class="form-compos">
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+        <div class="field_item comp label">
+        <h3>{{ form.theme.label }}</h3><br>
+        {{ form.theme(class="form-control") }}<br>
+        </div>
+        {% for error in form.theme.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+        <div class="field_item comp label">
+        <h3>{{ form.composition.label }}</h3><br>
+        {{ form.composition(class="form-control") }}<br>
+        </div>
+        {% for error in form.composition.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+        <div class="count-from-to">
+        <div class="field_item count">
+        <h3 class="label">{{ form.word_count_from.label }}</h3>
+        {{ form.word_count_from(class="form-control") }}<br>
+        </div>
+        {% for error in form.word_count_from.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+        <div class="field_item count">
+        <h3 class="label">{{ form.word_count_to.label }}</h3>
+        {{ form.word_count_to(class="form-control") }}<br><br>
+        </div>
+        {% for error in form.word_count_to.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+        <h3 class="label">слов</h3>
+        </div>
+
+        </p>
+
+        <p align="center">{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+    </div>
+        <div class="error-msg">
+            <h3 align="center">{{ message }}</h3>
+        </div>
+
+    </form>
+{% if answer %}
+    <div class="answer">
+        <h4 align="center">{{ answer }}</h4>
+    </div>
+
+{% endif %}
+{% else %}
+<div class="arrow one">
+    <img src="static/img/arrow_up.png" alt="">
+</div>
+<div class="arrow two">
+    <img src="static/img/arrow_up.png" alt="">
+</div>
+<h1 class="need" align="center">Вам необходимо зарегестрироваться или войти в аккаунт перед использованием нашего сервиса</h1>
+{% endif %}
+{% endblock %}

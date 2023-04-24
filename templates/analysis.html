@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if current_user.is_authenticated %}
+<button type="button" class="btn btn-primary btn-slovar" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <h3 align="center">Анализ текста</h3>
+</button>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <p class="modal-title fs-5" id="exampleModalLabel">Информация</p>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          Правила пользования словарём:<br><br>
+          &#8226; Не вводить слишком много символов.<br><br>
+          &#8226; Корректно вводить текст.<br><br>
+          Примечания:<br><br>
+          &#8226; Вводить текст можно на любом языке.<br><br>
+
+      </div>
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Принять</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="form-analysis">
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+        <div class="field_item">
+        <h3>{{ form.text.label }}</h3><br>
+        {{ form.text(class="form-control") }}<br>
+        </div>
+        {% for error in form.text.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+        </p>
+        <p align="center">{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+    </div>
+        <div class="error-msg">
+            <h3 align="center">{{ message }}</h3>
+        </div>
+
+    </form>
+<div class="container text-center result">
+  <div class="row align-items-center">
+    <div class="col-4">
+      Всего слов
+    </div>
+    <div class="col-1">
+      {{ all_words }}
+    </div>
+    <div class="col-4">
+      Всего кириллических символов
+    </div>
+    <div class="col-1">
+      {{ ru_symbs }}
+    </div>
+  </div>
+  <div class="row align-items-center">
+    <div class="col-4">
+      Всего символов
+    </div>
+    <div class="col-1">
+      {{ all_symbs }}
+    </div>
+    <div class="col-4">
+      Всего латинских символов
+    </div>
+    <div class="col-1">
+      {{ en_symbs }}
+    </div>
+  </div>
+  <div class="row align-items-center">
+    <div class="col-4">
+      Всего символов без пробелов
+    </div>
+    <div class="col-1">
+      {{ all_symbs_w_o_spaces }}
+    </div>
+    <div class="col-4">
+      Всего цифр
+    </div>
+    <div class="col-1">
+      {{ nums }}
+    </div>
+  </div>
+  <div class="row align-items-center">
+    <div class="col-4">
+      Пробелов
+    </div>
+    <div class="col-1">
+        {{ spaces }}
+    </div>
+    <div class="col-4">
+      Остальных символов
+    </div>
+    <div class="col-1">
+      {{ other_symbs }}
+    </div>
+  </div>
+</div>
+{% else %}
+<div class="arrow one">
+    <img src="static/img/arrow_up.png" alt="">
+</div>
+<div class="arrow two">
+    <img src="static/img/arrow_up.png" alt="">
+</div>
+<h1 class="need" align="center">Вам необходимо зарегестрироваться или войти в аккаунт перед использованием нашего сервиса</h1>
+{% endif %}
+{% endblock %}

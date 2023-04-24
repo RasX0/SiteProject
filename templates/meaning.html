@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if current_user.is_authenticated %}
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-slovar" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <h2 align="center">Словарь</h2>
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <p class="modal-title fs-5" id="exampleModalLabel">Информация</p>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          Правила пользования словарём:<br><br>
+          &#8226; Ввод слова обязателен.<br><br>
+          &#8226; Вводится только одно слово.<br><br>
+          &#8226; Ввод слова только на английском или на русском языке.<br><br>
+          Примечания:<br><br>
+          &#8226; Словарь работает немного хуже на русском языке, чем на английском. Это связано с тем, что бот больше подготовлен к англоязычному использованию.<br><br>
+          &#8226; Словарь отвечает вам на том же языке, на каком вы и написали слово.
+
+      </div>
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Принять</button>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="form">
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+        <div class="field_item">
+        <h3 class="label">{{ form.word.label }}</h3><br>
+        {{ form.word(class="form-control") }}<br>
+        </div>
+        {% for error in form.word.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+        </p>
+        <p align="center">{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+    </div>
+        <div class="error-msg">
+            <h3 align="center">{{ message }}</h3>
+        </div>
+
+    </form>
+{% if answer %}
+    <div class="answer">
+        <h4 align="center">{{ answer }}</h4>
+    </div>
+
+{% endif %}
+{% else %}
+<div class="arrow one">
+    <img src="static/img/arrow_up.png" alt="">
+</div>
+<div class="arrow two">
+    <img src="static/img/arrow_up.png" alt="">
+</div>
+<h1 class="need" align="center">Вам необходимо зарегестрироваться или войти в аккаунт перед использованием нашего сервиса</h1>
+{% endif %}
+{% endblock %}
