@@ -1,0 +1,159 @@
+@media (max-width:1203px) {
+    .help {
+        margin-top: 100px;
+    }
+    .nav__links li a {
+        font-size: 18px;
+    }
+    
+    .log-btn a button {
+        font-size: 15px;
+    }
+
+    .logo {
+        width: 100px;
+        height: 60px;
+    }
+
+    .nav__links li {
+
+        padding: 0px 10px;
+    }
+
+    a button {
+        padding: 5px 15px;
+        margin: 5px;
+    }
+}
+
+@media (max-width:890px) {
+    .nav__links li a,
+    .log-btn a button {
+        font-size: 15px;
+    }
+    .help {
+        font-size: 28px;
+    }
+}
+
+@media (max-width:830px) {
+    .slogan-title {
+        font-size: 2.2rem;
+    }
+    .slogan {
+        font-size: 25px;
+    }
+    .meet_brain {
+        font-size: 30px;
+    }
+    .neiroset {
+        font-size: 30px;
+    }
+    .pos_text {
+        font-size: 28px;
+    }
+
+    .help {
+        font-size: 25px;
+    }
+
+    .nav__links li a,
+    .log-btn a button {
+        font-size: 13px;
+    }
+
+    .logo {
+        width: 75px;
+        height: 45px;
+    }
+
+    .nav__links li {
+        padding: 0px 8px;
+    }
+
+    a button {
+        padding: 5px 10px;
+        margin: 5px;
+    }
+}
+
+.toggle-button {
+    margin-top: 30px;
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.toggle-button .bar {
+    height: 4px;
+    width: 100%;
+    background-color: rgb(0, 116, 217);
+    border-radius: 10px;
+}
+
+@media (max-width:700px) {
+    .slogan-title {
+        font-size: 2rem;   
+    }
+    .slogan, .pos_text {
+        font-size: 22px;
+    }
+    .meet_brain, .neiroset {
+        font-size: 24px;
+    }
+    .brain_img {
+        margin: 0px auto 10px;
+        padding: 20px;
+    }
+
+
+
+    .toggle-button {
+        display: flex;
+    }
+
+    .logo {
+        margin-left: 0px;
+    }
+
+    .nav__links,
+    .log-btn {
+        display: none;
+    }
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 30px 20px;
+    }
+    nav ul, .log-btn.active{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .nav__links.active, nav {
+        width: 100%;
+    }
+    .nav__links.active li, .log-btn a {
+        text-align: center;
+        font-size: 21px;
+    }
+    .nav__links.active,
+    .log-btn.active {
+        display: flex;
+    }
+    .log-btn.active {
+        margin-top: 0px;
+        padding-top: 0px;
+    }
+    .user {
+        font-size: 27px;
+    }
+    .nav__links.active {
+        margin-top: 15px;
+    }
+}
